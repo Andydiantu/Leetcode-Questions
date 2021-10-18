@@ -13,6 +13,7 @@
         <module name="1008_Construct_Binary_Search_Tree_from_Preorder_Traversal" />
         <module name="2_Add_two_numbers" />
         <module name="121_Best_Time_to_Buy_and_Sell_Stock" />
+        <module name="6_ZigZag_Conversion" />
         <module name="122._Best_Time_to_Buy_and_Sell_Stock_II" />
         <module name="123. Best_Time_to_Buy_and_Sell_Stock_III" />
       </profile>
