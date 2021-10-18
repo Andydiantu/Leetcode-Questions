@@ -1,29 +1,43 @@
+import java.net.BindException;
 import java.util.List;
 
 public class Solution {
     public String longestPalindrome(String s) {
+        if (s.length() < 2 ){
+            return s;
+        }
 
-        return null;
+        int maxLength = 1;
+        int indexStart = 0;
+        int indexEnd = 0;
+        for (int i = 1; i < s.length(); i++){
+            int maxSingle = expandTwoSides(s,i,i);
+            if (maxSingle > maxLength){
+                maxLength = maxSingle;
+                indexStart = i - ((maxLength - 1)/2);
+                indexEnd = i +  ((maxLength - 1)/2);
+            }
+            int maxDouble = expandTwoSides(s,i-1,i);
+            if (maxDouble > maxLength){
+                maxLength = maxDouble;
+                indexStart = i - (maxLength / 2);
+                indexEnd   = i + (maxLength/2)-1;
+            }
+
+        }
+
+        return s.substring(indexStart,indexEnd+1);
     }
 
-    public void currPalindrome(String s, List<Integer> middleListSingle, List<Integer> middleListDouble, int currWide ){
-        List<Integer> newMiddleListSingle = null;
-        List<Integer> newMiddleListDouble = null;
+    public int expandTwoSides(String s, int indexLeft, int indexRight) {
 
-         for (int i : middleListSingle){
-             if ((i + currWide < s.length()) && (i - currWide >= 0) ){
-                 if (s.charAt(i+currWide) == s.charAt(i-currWide)){
-                     newMiddleListSingle.add(i);
-                 } else {
-                     continue;
-                 }
-             } else {
-                 continue;
-             }
-         }
-
-         for (int i : middleListDouble){
-  //           if (())
-         }
+        while(indexLeft >= 0 & indexRight < s.length() & s.charAt(indexLeft) == s.charAt(indexRight)){
+            indexLeft--;
+            indexRight++;
+            if (!(indexLeft >= 0 & indexRight < s.length())){
+                break;
+            }
+        }
+        return indexRight - indexLeft - 1;
     }
 }
