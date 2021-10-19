@@ -16,6 +16,7 @@
         <module name="6_ZigZag_Conversion" />
         <module name="122._Best_Time_to_Buy_and_Sell_Stock_II" />
         <module name="123. Best_Time_to_Buy_and_Sell_Stock_III" />
+        <module name="7_Reverse_Integer" />
       </profile>
     </annotationProcessing>
   </component>
